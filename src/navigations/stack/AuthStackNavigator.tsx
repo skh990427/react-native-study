@@ -11,8 +11,9 @@ export type AuthStackParamList = {
     [authNavigations.LOGIN]: undefined;
 }
 
+const Stack = createStackNavigator<AuthStackParamList>();
+
 function AuthStackNavigator() {
-    const Stack = createStackNavigator<AuthStackParamList>();
     return (
         <Stack.Navigator>
             <Stack.Screen name={authNavigations.AUTH_HOME} component={AuthHomeScreen}/>
