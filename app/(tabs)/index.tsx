@@ -1,25 +1,17 @@
-import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
-import {useState} from "react";
+import {StyleSheet} from 'react-native';
+import AuthStackNavigator from "@/src/navigation/AuthStackNavigator";
+// import "react-native-gesture-handler";
 
 export default function HomeScreen() {
-    const[name, setName] = useState('');
+    // const [name, setName] = useState('');
 
-    const handleChangeInput = (text: string) => {
-        console.log(text);
-        setName(text);
-    };
+    // const handleChangeInput = (text: string) => {
+    //     console.log(text);
+    //     setName(text);
+    // };
 
     return (
-        <SafeAreaView style={styles.container}>
-            <View style={styles.inputContainer}>
-                <Text>이름</Text>
-                <TextInput
-                    style={styles.input}
-                    value={name}
-                    onChangeText={handleChangeInput}
-                />
-            </View>
-        </SafeAreaView>
+        <AuthStackNavigator/>
     );
 }
 
