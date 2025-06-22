@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import {createStackNavigator} from "@react-navigation/stack";
 import AuthHomeScreen from "@/src/screens/auth/AuthHomeScreen";
 import LoginScreen from "@/src/screens/auth/LoginScreen";
-import {authNavigations} from "@/src/constant";
+import {authNavigations} from "../../constants";
 import SignupScreen from "@/src/screens/auth/SignupScreen";
 
 
