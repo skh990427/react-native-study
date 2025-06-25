@@ -3,7 +3,7 @@ import {Dimensions, SafeAreaView, StyleSheet, View} from "react-native";
 import {StackScreenProps} from "@react-navigation/stack";
 import {AuthStackParamList} from "@/src/navigations/stack/AuthStackNavigator";
 import CustomButton from "@/src/components/CustomButton";
-import {authNavigations} from "../../constants/navigations";
+import {authNavigations} from "@/src/constants";
 import {Image} from "expo-image";
 
 type AuthHomeScreenProps = StackScreenProps<AuthStackParamList>;
@@ -25,7 +25,7 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
                 <CustomButton
                     label="회원가입하기"
                     variant='outlined'
-                    onPress={() => navigation.navigate(authNavigations.LOGIN)}
+                    onPress={() => navigation.navigate(authNavigations.SIGNUP)}
                 />
             </View>
         </SafeAreaView>
