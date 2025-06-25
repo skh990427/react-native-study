@@ -1,12 +1,12 @@
-import React from "react";
-import {SafeAreaView, StyleSheet, View} from "react-native";
+import React, {useRef} from "react";
+import {SafeAreaView, StyleSheet, TextInput, View} from "react-native";
 import InputField from "@/src/components/InputField";
 import CustomButton from "@/src/components/CustomButton";
 import useForm from "@/src/hooks/useForm";
 import {validateLogin} from "@/src/utils";
 
 function LoginScreen() {
-
+    const passwordRef = useRef<TextInput | null>(null);
     const login = useForm({
         initialValue: {
             email: "",
@@ -23,6 +23,7 @@ function LoginScreen() {
         <SafeAreaView style={styles.container}>
             <View style={styles.inputContainer}>
                 <InputField
+                    autoFocus={true}
                     placeholder="이메일"
                     error={login.errors.email}
                     touched={login.touched.email}
@@ -30,9 +31,15 @@ function LoginScreen() {
                     // value={values.email}
                     // onChangeText={(text) => handleChangeText("email", text)}
                     // onBlur={() => handleBlur("email")}
+                    submitBehavior="submit"
+                    returnKeyType="next"
+                    onSubmitEditing={() => {
+                        passwordRef.current?.focus()
+                    }}
                     {...login.getTextInputProps("email")}
                 />
                 <InputField
+                    ref={passwordRef}
                     placeholder="비밀번호"
                     error={login.errors.password}
                     touched={login.touched.password}
@@ -40,6 +47,9 @@ function LoginScreen() {
                     // value={values.password}
                     // onChangeText={(text) => handleChangeText("password", text)}
                     // onBlur={() => handleBlur("password")}
+                    submitBehavior="submit"
+                    returnKeyType="join"
+                    onSubmitEditing={handleSubmit}
                     {...login.getTextInputProps("password")}
                 />
             </View>
