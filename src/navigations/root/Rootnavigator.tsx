@@ -1,10 +1,11 @@
 import AuthStackNavigator from "@/src/navigations/stack/AuthStackNavigator";
 import MainDrawerNavigator from "@/src/navigations/drawer/MainDrawerNavigator";
+import useAuth from "@/src/hooks/queries/useAuth";
 
 function RootNavigator() {
-    const isLoggedIn = false;
+    const {isLogin} = useAuth();
 
-    return <>{isLoggedIn ? <MainDrawerNavigator/> : <AuthStackNavigator/>}</>
+    return <>{isLogin ? <MainDrawerNavigator/> : <AuthStackNavigator/>}</>
 }
 
 export default RootNavigator;
